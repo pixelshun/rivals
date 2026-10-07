@@ -7,7 +7,7 @@ local LocalPlayer = Players.LocalPlayer
 -- Add your buyers' EXACT Roblox usernames inside this list
 local WhitelistedUsers = {
     "WRKN99",                -- Your username
-    "BuyerUsername1",        -- Replace or add more buyers here
+    "devistater1422",        -- Replace or add more buyers here
     "BuyerUsername2"
 }
 
