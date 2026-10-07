@@ -7,7 +7,7 @@ local LocalPlayer = Players.LocalPlayer
 local WhitelistedUsers = {
     "WRKN99",
     "devistater1422",
-    "BuyerUsername2"
+    "WhoIsKream"
 }
 
 local function isAllowed()
