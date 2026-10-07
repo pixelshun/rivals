@@ -29,7 +29,7 @@ if not isAllowed() then
 end
 
 -- Replace this with your actual raw GitHub URL
-local SCRIPT_URL = "YOUR_RAW_GITHUB_URL_HERE"
+local SCRIPT_URL = "https://raw.githubusercontent.com/pixelshun/rivals/refs/heads/main/autofling.lua"
 
 print("[Loader] Access Granted! Authenticating and initializing AutoFling...")
 
