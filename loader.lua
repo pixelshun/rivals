@@ -1,8 +1,11 @@
 -- ==========================================
--- AUTO-FLING LOADER WITH WHITELIST
+-- DEBUG LOADER
 -- ==========================================
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+
+print("[DEBUG] Current Game Username: " .. tostring(LocalPlayer.Name))
+print("[DEBUG] Current User ID: " .. tostring(LocalPlayer.UserId))
 
 local WhitelistedUsers = {
     "WRKN99",
@@ -21,25 +24,8 @@ local function isAllowed()
 end
 
 if not isAllowed() then
-    warn("[Loader] Access Denied: You are not whitelisted to use this script.")
+    warn("[Loader] Access Denied! The script thinks your name is: '" .. tostring(LocalPlayer.Name) .. "'")
     return
 end
 
-local SCRIPT_URL = "https://raw.githubusercontent.com/pixelshun/rivals/refs/heads/main/autofling.lua"
-
-print("[Loader] Access Granted! Authenticating and initializing AutoFling...")
-
-local success, result = pcall(function()
-    return game:HttpGet(SCRIPT_URL)
-end)
-
-if success and result then
-    local fn, err = loadstring(result)
-    if fn then
-        fn()
-    else
-        warn("[Loader] Compilation error: " .. tostring(err))
-    end
-else
-    warn("[Loader] Failed to connect to server.")
-end
+print("[Loader] Access Granted!")
