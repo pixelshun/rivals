@@ -25,10 +25,9 @@ if not isAllowed() then
     return
 end
 
--- Replace or ensure this points to your actual obfuscated autofling.lua raw URL
 local SCRIPT_URL = "https://raw.githubusercontent.com/pixelshun/rivals/refs/heads/main/autofling.lua"
 
-print("[Loader] Access Granted! Authenticating and initializing AutoFling...")
+print("[Loader] Access Granted! Downloading AutoFling...")
 
 local success, result = pcall(function()
     return game:HttpGet(SCRIPT_URL)
@@ -37,7 +36,12 @@ end)
 if success and result then
     local fn, err = loadstring(result)
     if fn then
-        fn()
+        print("[Loader] Running AutoFling...")
+        -- Safely run the script and catch any runtime errors inside autofling.lua
+        local runSuccess, runErr = pcall(fn)
+        if not runSuccess then
+            warn("[Autofling Error]: " .. tostring(runErr))
+        end
     else
         warn("[Loader] Compilation error: " .. tostring(err))
     end
