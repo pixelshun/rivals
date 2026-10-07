@@ -4,14 +4,12 @@
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
--- Add your buyers' EXACT Roblox usernames inside this list
 local WhitelistedUsers = {
-    "WRKN99",                -- Your username
-    "devistater1422",        -- Replace or add more buyers here
+    "WRKN99",
+    "devistater1422",
     "BuyerUsername2"
 }
 
--- Function to check if the local player is allowed
 local function isAllowed()
     local currentName = LocalPlayer.Name
     for _, name in ipairs(WhitelistedUsers) do
@@ -22,13 +20,11 @@ local function isAllowed()
     return false
 end
 
--- Verify whitelist before fetching the script from GitHub
 if not isAllowed() then
     warn("[Loader] Access Denied: You are not whitelisted to use this script.")
-    return -- Stops the script completely for non-buyers
+    return
 end
 
--- Replace this with your actual raw GitHub URL
 local SCRIPT_URL = "https://raw.githubusercontent.com/pixelshun/rivals/refs/heads/main/autofling.lua"
 
 print("[Loader] Access Granted! Authenticating and initializing AutoFling...")
